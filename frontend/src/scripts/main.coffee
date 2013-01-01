@@ -1,23 +1,25 @@
 #! Defines the project dependencies.
-#!
+'use strict'
 
 require.config
   paths:
     # Collection of (extremely) useful utilities: <http://lodash.com/docs>.
-    underscore: 'vendor/lodash'
+    underscore: '../components/lodash/lodash'
 
     # Eases DOM manipulation.
-    jquery: 'vendor/jquery'
+    jquery: '../components/jquery/jquery'
 
     # Provides the JSON object for manipulation of JSON strings if not
     # already defined.
-    json2: 'vendor/json3'
+    json2: '../components/json3/lib/json3'
+
+    # Set of components and conventions powering Chaplin.
+    backbone: '../components/backbone/backbone'
 
     # Core framework powering the single-page application.
-    backbone: 'vendor/backbone'
     chaplin: 'vendor/chaplin'
 
-    # Compiled template directory.
+    # Micro-template directory.
     templates: '../templates'
 
   shim:
@@ -30,8 +32,6 @@ require.config
       ]
 
 #! Instantiates the application and begins the execution cycle.
-#!
 
 require ['app'], (Application) ->
-  app = new Application()
-  app.initialize()
+  new Application().initialize()
